@@ -22,7 +22,14 @@
     }
   },
   "files": [
-    "dist/**/*",
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/index.d.ts.map",
+    "dist/index.js.map",
+    "dist/generator.js",
+    "dist/generator.d.ts",
+    "dist/generator.d.ts.map",
+    "dist/generator.js.map",
     "README.md",
     "LICENSE"
   ],
@@ -46,10 +53,21 @@
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write src/**/*.ts",
     "format:check": "prettier --check src/**/*.ts",
-    "prepublishOnly": "npm run clean && npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prepack": "npm run clean && npm run build",
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "release:dry": "npm publish --dry-run",
+    "version:check": "npm version --help",
+    "pack:local": "npm pack",
+    "install:local": "npm pack && npm install -g snowflake-id-node-*.tgz",
+    "uninstall:local": "npm uninstall -g snowflake-id-node",
+    "size": "npm pack --dry-run",
+    "preview": "npm pack && tar -tzf snowflake-id-node-*.tgz"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

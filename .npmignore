@@ -1,0 +1,98 @@
+# Source files
+src/
+
+# Test files - exclude from package
+**/*.test.ts
+**/*.test.js
+**/*.test.d.ts
+**/*.test.d.ts.map
+**/*.test.js.map
+**/*.spec.ts
+**/*.spec.js
+**/*.spec.d.ts
+**/*.spec.d.ts.map
+**/*.spec.js.map
+__tests__/
+test/
+tests/
+dist/**/*.test.*
+dist/**/*.spec.*
+dist/__tests__/
+
+# Configuration files
+jest.config.js
+eslint.config.js
+.eslintrc.*
+.prettierrc*
+.editorconfig
+
+# Development dependencies
+node_modules/
+
+# Build tools
+.babelrc*
+webpack.config.js
+rollup.config.js
+vite.config.js
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Environment files
+.env*
+
+# Cache
+.cache/
+*.tsbuildinfo
+.eslintcache
+.prettiercache
+
+# Temporary files
+tmp/
+temp/
+
+# Git
+.git/
+.gitignore
+
+# NPM
+.npmrc
+
+# Yarn
+.yarnrc
+yarn.lock
+.yarn/
+
+# Package lock files
+package-lock.json
+
+# Local development
+.local/
+examples/
+demo/
