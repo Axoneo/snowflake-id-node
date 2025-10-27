@@ -330,12 +330,12 @@ The generator is optimized for high-throughput scenarios:
 
 Our comprehensive test suite validates:
 
-- ✅ High concurrency (1,000 IDs across 10 concurrent batches)
-- ✅ Bulk generation (10,000 sequential IDs maintaining uniqueness)
-- ✅ Sequence overflow handling (5,000+ IDs in rapid succession)
-- ✅ Multi-node atomicity (5 generators with different node IDs)
-- ✅ Mixed sync/async consistency (500 operations)
-- ✅ Worker simulation (20 concurrent workers, 50 IDs each)
+- High concurrency (1,000 IDs across 10 concurrent batches)
+- Bulk generation (10,000 sequential IDs maintaining uniqueness)
+- Sequence overflow handling (5,000+ IDs in rapid succession)
+- Multi-node atomicity (5 generators with different node IDs)
+- Mixed sync/async consistency (500 operations)
+- Worker simulation (20 concurrent workers, 50 IDs each)
 
 ## Examples
 
