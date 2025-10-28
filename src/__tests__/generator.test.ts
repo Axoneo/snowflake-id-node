@@ -7,7 +7,7 @@ import {
   EPOCHS,
   DEFAULT_EPOCH,
   EpochUtils,
-} from '../index';
+} from '../index.js';
 
 describe('SnowflakeIdGenerator', () => {
   let generator: SnowflakeIdGenerator;

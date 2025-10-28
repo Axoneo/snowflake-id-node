@@ -1,9 +1,9 @@
-export { SnowflakeIdGenerator, DEFAULT_EPOCH, EPOCHS, EpochUtils } from './generator';
-export type { SnowflakeIdInfo, SnowflakeGeneratorOptions, GeneratorStats } from './generator';
+export { SnowflakeIdGenerator, DEFAULT_EPOCH, EPOCHS, EpochUtils } from './generator.js';
+export type { SnowflakeIdInfo, SnowflakeGeneratorOptions, GeneratorStats } from './generator.js';
 
 // Export a default instance for convenience
-import { SnowflakeIdGenerator } from './generator';
-import type { SnowflakeIdInfo } from './generator';
+import { SnowflakeIdGenerator } from './generator.js';
+import type { SnowflakeIdInfo } from './generator.js';
 
 export const defaultGenerator = new SnowflakeIdGenerator();
 

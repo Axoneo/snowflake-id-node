@@ -11,27 +11,12 @@ A high-performance Snowflake ID generator for Node.js applications, inspired by 
 - **Distributed**: Support for up to 1,024 nodes
 - **Time Ordered**: IDs are chronologically sortable
 - **Zero Dependencies**: Pure TypeScript/JavaScript implementation
-- **Multiple Formats**: Both ESM and CommonJS support
 - **Type Safe**: Full TypeScript support with comprehensive types
 
 ## Installation
 
 ```bash
 npm install snowflake-id-node
-```
-
-## Import module
-
-### ESM
-
-```js
-import { generateId } from 'snowflake-id-node';
-```
-
-### CommonJS
-
-```js
-const { generateId } = require('snowflake-id-node');
 ```
 
 ## Quick Start
