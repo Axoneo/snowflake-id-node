@@ -14,6 +14,22 @@
   "author": "Axoneo",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./README.md": "./README.md"
+  },
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
@@ -33,9 +49,12 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run postbuild:link-entry",
+    "build:esm": "tsc --project tsconfig.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
+    "postbuild:link-entry": "cp dist/esm/index.js dist/index.js && cp dist/esm/index.d.ts dist/index.d.ts && cp dist/esm/index.js.map dist/index.js.map && cp dist/esm/index.d.ts.map dist/index.d.ts.map",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write src/**/*.ts",

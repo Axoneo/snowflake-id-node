@@ -20,6 +20,20 @@ A high-performance Snowflake ID generator for Node.js applications, inspired by 
 npm install snowflake-id-node
 ```
 
+## Import module
+
+### ESM
+
+```js
+import { generateId } from 'snowflake-id-node';
+```
+
+### CommonJS
+
+```js
+const { generateId } = require('snowflake-id-node');
+```
+
 ## Quick Start
 
 ### Basic Usage
