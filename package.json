@@ -1,6 +1,6 @@
 {
   "name": "snowflake-id-node",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Snowflake ID Generator for Node.js",
   "homepage": "https://github.com/Axoneo/snowflake-id-node#readme",
   "bugs": {
