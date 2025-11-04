@@ -350,30 +350,30 @@ Long-running performance remains consistent:
 _Tested on macOS Sequoia with Apple M4_
 
 ```
-📊 Synchronous Generation Performance:
+   Synchronous Generation Performance:
    1,000 IDs:    0.67ms →   1,487,449 IDs/sec
   10,000 IDs:    5.21ms →   1,920,799 IDs/sec
  100,000 IDs:   51.31ms →   1,948,803 IDs/sec
 
-🚀 Asynchronous Generation Performance:
+   Asynchronous Generation Performance:
    1,000 IDs:    1.48ms →     677,449 IDs/sec
   10,000 IDs:   12.01ms →     832,553 IDs/sec
   50,000 IDs:   37.10ms →   1,347,592 IDs/sec
 
-🔄 Concurrent Multi-Node Performance:
+   Concurrent Multi-Node Performance:
  8 nodes × 10,000 = 80,000 IDs in 60.31ms (1,326,501 IDs/sec)
 
-🔍 Parsing Performance Analysis:
+   Parsing Performance Analysis:
  Timestamp extraction:   2,110,740 ops/sec
  Node ID extraction:     3,185,516 ops/sec
  Full ID parsing:          876,539 ops/sec
 
-  Sync vs Async Comparison:
+   Sync vs Async Comparison:
  Synchronous:    2,159,905 IDs/sec
  Asynchronous:   1,315,296 IDs/sec
  Ratio: 1.64x
 
-💾 Memory Efficiency Analysis:
+   Memory Efficiency Analysis:
  Generated: 500,000 IDs
  Rate: 1,818,058 IDs/sec
  Memory: 26.32 MB increase
