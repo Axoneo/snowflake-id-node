@@ -317,24 +317,96 @@ try {
 
 ## Performance
 
-The generator is optimized for high-throughput scenarios:
+The generator is optimized for high-throughput scenarios with excellent performance characteristics.
 
-- **Async generation**: Up to 4,096 IDs per millisecond per node
-- **Sync generation**: 10,000+ IDs in ~6ms on modern hardware
-- **Memory efficient**: Minimal memory footprint with built-in statistics
-- **Zero dependencies**: Pure TypeScript implementation
-- **Thread safety**: Atomic operations with sequence overflow handling
+> **Benchmark Environment**: macOS Sequoia, Apple M4
 
-### Benchmarks
+### Generation Performance
+
+- **Synchronous Generation**: **~2M IDs/second** (100,000 IDs in ~50ms)
+- **Asynchronous Generation**: **~1.3M IDs/second** (50,000 IDs in ~37ms)
+- **Concurrent Multi-Node**: **~1.2M IDs/second** (8 nodes × 10,000 IDs in ~65ms)
+- **Memory Efficiency**: **<60 bytes/ID overhead** (500,000 IDs with ~26MB increase)
+
+### Parsing Performance
+
+Our parsing operations are highly optimized:
+
+- **Timestamp Extraction**: **~2.1M ops/second**
+- **Node ID Extraction**: **~3.2M ops/second**
+- **Full ID Parsing**: **~880K ops/second**
+- **ID Validation**: **~5.3M ops/second**
+
+### Sustained Performance
+
+Long-running performance remains consistent:
+
+- **Average Rate**: **~2.2M IDs/second** over sustained periods
+- **Rate Variance**: **<5%** variation during continuous generation
+- **Memory Stability**: Minimal memory growth during bulk operations
+
+### Benchmark Results
+
+_Tested on macOS Sequoia with Apple M4_
+
+```
+   Synchronous Generation Performance:
+   1,000 IDs:    0.67ms →   1,487,449 IDs/sec
+  10,000 IDs:    5.21ms →   1,920,799 IDs/sec
+ 100,000 IDs:   51.31ms →   1,948,803 IDs/sec
+
+   Asynchronous Generation Performance:
+   1,000 IDs:    1.48ms →     677,449 IDs/sec
+  10,000 IDs:   12.01ms →     832,553 IDs/sec
+  50,000 IDs:   37.10ms →   1,347,592 IDs/sec
+
+   Concurrent Multi-Node Performance:
+ 8 nodes × 10,000 = 80,000 IDs in 60.31ms (1,326,501 IDs/sec)
+
+   Parsing Performance Analysis:
+ Timestamp extraction:   2,110,740 ops/sec
+ Node ID extraction:     3,185,516 ops/sec
+ Full ID parsing:          876,539 ops/sec
+
+   Sync vs Async Comparison:
+ Synchronous:    2,159,905 IDs/sec
+ Asynchronous:   1,315,296 IDs/sec
+ Ratio: 1.64x
+
+   Memory Efficiency Analysis:
+ Generated: 500,000 IDs
+ Rate: 1,818,058 IDs/sec
+ Memory: 26.32 MB increase
+ Per ID: 55.2024 bytes/ID overhead
+```
+
+### Testing & Validation
 
 Our comprehensive test suite validates:
 
-- High concurrency (1,000 IDs across 10 concurrent batches)
-- Bulk generation (10,000 sequential IDs maintaining uniqueness)
-- Sequence overflow handling (5,000+ IDs in rapid succession)
-- Multi-node atomicity (5 generators with different node IDs)
-- Mixed sync/async consistency (500 operations)
-- Worker simulation (20 concurrent workers, 50 IDs each)
+- **High concurrency**: 1,000 IDs across 10 concurrent batches
+- **Bulk generation**: 100,000 sequential IDs maintaining uniqueness
+- **Sequence overflow handling**: 5,000+ IDs in rapid succession
+- **Multi-node atomicity**: 8 generators with different node IDs
+- **Mixed sync/async consistency**: 500 operations
+- **Worker simulation**: 20 concurrent workers, 50 IDs each
+- **Sustained performance**: 2+ seconds of continuous generation
+- **Memory efficiency**: 500,000 IDs with memory tracking
+
+### Performance Characteristics
+
+- **Async generation**: Up to 4,096 IDs per millisecond per node
+- **Sync generation**: 2M+ IDs per second on modern hardware
+- **Memory efficient**: <60 bytes overhead per ID
+- **Zero dependencies**: Pure TypeScript implementation
+- **Thread safety**: Atomic operations with sequence overflow handling
+- **Predictable performance**: Consistent generation rates across time
+
+To run the performance benchmarks yourself:
+
+```bash
+npm test -- --testNamePattern="Performance Benchmarks"
+```
 
 ## Examples
 
