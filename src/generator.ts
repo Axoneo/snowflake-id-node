@@ -261,7 +261,7 @@ export class SnowflakeIdGenerator {
 
   private async waitNextMillis(lastTimestamp: number): Promise<number> {
     return new Promise(resolve => {
-      const check = () => {
+      const check = (): void => {
         const timestamp = Date.now();
         if (timestamp > lastTimestamp) {
           resolve(timestamp);
